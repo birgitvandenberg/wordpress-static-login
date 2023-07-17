@@ -1,0 +1,40 @@
+<script>
+(function () {
+
+    var login_form = document.getElementById('loginform');
+    var login_error = document.getElementById('login_error');
+    var user_login = document.getElementById('user_login');
+    var user_pass = document.getElementById('user_pass');
+
+    function hideError() {
+        login_error.style['display'] = 'none';
+    }
+    function showError() {
+        login_error.style['display'] = '';
+    }
+    function reloadWithError() {
+        document.cookie = 'show_error=yes;';
+        location.reload();
+    }
+    function clearInput() {
+        user_login.value = '';
+        user_pass.value = '';
+    }
+    login_form.addEventListener('submit', function (e) {
+        reloadWithError();
+        clearInput();
+    });
+    /*user_login.addEventListener('input', function (e) {
+        hideError();
+    });
+    user_pass.addEventListener('focus', function (e) {
+        hideError();
+    });*/
+
+    console.log(document.cookie);
+    if (document.cookie.includes('show_error=yes')) {
+        showError();
+    }
+    document.cookie = 'show_error=;';
+})();
+</script>

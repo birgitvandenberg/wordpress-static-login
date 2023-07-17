@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+	<!--[if IE 8]>
+		<html xmlns="http://www.w3.org/1999/xhtml" class="ie8" lang="de-DE">
+	<![endif]-->
+	<!--[if !(IE 8) ]><!-->
+		<html xmlns="http://www.w3.org/1999/xhtml" lang="de-DE">
+	<!--<![endif]-->
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Kritisch sein &lsaquo; Anmelden</title>
+	<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' href='wp-admin/stylesheet.css' type='text/css' media='all' />
+	<meta name='robots' content='noindex,noarchive' />
+	<meta name='referrer' content='strict-origin-when-cross-origin' />
+		<meta name="viewport" content="width=device-width" />
+		</head>
+	<body class="login login-action-login wp-core-ui  locale-de-de">
+		<div id="login">
+		<h1><a href="https://de.wordpress.org/" title="Powered by WordPress" tabindex="-1">Kritisch sein</a></h1>
+<div id="login_error" style="display:none;"> <strong>FEHLER</strong>: Ein Benutzer mit diesem Namen existiert nicht oder das Passwort ist ungültig.<br>
+</div>	
+<form name="loginform" id="loginform" action="javascript:void(0);" method="post">
+	<p>
+		<label for="user_login">Benutzername oder E-Mail-Adresse<br />
+		<input type="text" name="log" id="user_login" class="input" value="" size="20" /></label>
+	</p>
+	<p>
+		<label for="user_pass">Passwort<br />
+		<input type="password" name="pwd" id="user_pass" class="input" value="" size="20" /></label>
+	</p>
+		<p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> Angemeldet bleiben</label></p>
+	<p class="submit">
+		<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Anmelden" />
+		<input type="hidden" name="testcookie" value="1" />
+	</p>
+</form>
+
+
+<script type="text/javascript">
+function wp_attempt_focus(){
+setTimeout( function(){ try{
+d = document.getElementById('user_login');
+d.focus();
+d.select();
+} catch(e){}
+}, 200);
+}
+
+wp_attempt_focus();
+if(typeof wpOnload=='function')wpOnload();
+</script>
+
+	<p id="backtoblog"><a href="index.html">&larr; Zurück zu Kritisch sein</a></p>
+	
+	</div>
+
+	
+		<div class="clear"></div>
+	</body>
+<script>
+(function () {
+
+    var login_form = document.getElementById('loginform');
+    var login_error = document.getElementById('login_error');
+    var user_login = document.getElementById('user_login');
+    var user_pass = document.getElementById('user_pass');
+
+    function hideError() {
+        login_error.style['display'] = 'none';
+    }
+    function showError() {
+        login_error.style['display'] = '';
+    }
+    function reloadWithError() {
+        document.cookie = 'show_error=yes;';
+        location.reload();
+    }
+    function clearInput() {
+        user_login.value = '';
+        user_pass.value = '';
+    }
+    login_form.addEventListener('submit', function (e) {
+        reloadWithError();
+        clearInput();
+    });
+    /*user_login.addEventListener('input', function (e) {
+        hideError();
+    });
+    user_pass.addEventListener('focus', function (e) {
+        hideError();
+    });*/
+
+    console.log(document.cookie);
+    if (document.cookie == 'show_error=yes') {
+        showError();
+    }
+    document.cookie = 'show_error=;';
+})();
+</script>	</html>
+	
